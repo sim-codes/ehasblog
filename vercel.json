@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "ehasblog/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "ehasblog/wsgi.py"
+      }
+    ]
+}
