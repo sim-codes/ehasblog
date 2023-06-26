@@ -1,5 +1,4 @@
 from pathlib import Path
-import dj_database_url
 from dotenv import load_dotenv
 import os
 
@@ -19,7 +18,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", default=False)
 
-ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1", ".railway.app"]
 
 SITE_ID = 1
 # Application definition
@@ -77,20 +76,22 @@ WSGI_APPLICATION = "ehasblog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {}
+# DATABASES = {}
 
-if os.environ.get("DATABASE_URL"):
-    DATABASES["default"] = dj_database_url.config(default=os.environ["DATABASE_URL"])
+# if os.environ.get("DATABASE_URL"):
+#     DATABASES["default"] = dj_database_url.config(default=os.environ["DATABASE_URL"])
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "ehasdb",
-#         "USER": "ehasdb",
-#         "PASSWORD": "segun1997",
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.getenv("PGUSER"),
+        "USER": os.getenv("PGUSER"),
+        "PASSWORD": os.getenv("PGPASSWORD"),
+        "HOST": os.getenv("PGHOST"),
+        "PORT": os.getenv("PGPORT"),
+    }
+}
 
 
 # Password validation
