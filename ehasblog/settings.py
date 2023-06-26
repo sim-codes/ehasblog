@@ -17,7 +17,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".railway.com", "localhost", "127.0.0.1"]
 
 SITE_ID = 1
 # Application definition
@@ -108,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
