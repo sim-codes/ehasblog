@@ -158,3 +158,7 @@ def post_comment(request, post_id):
             "comment": comment,
         },
     )
+
+
+def page_not_found_view(request, exception):
+    return render(request, "404.html", status=404)

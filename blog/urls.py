@@ -31,3 +31,5 @@ urlpatterns = [
     ),
     path("feed/", LastestPostsFeed(), name="post_feed"),
 ]
+
+handler404 = "blog.views.page_not_found_view"
