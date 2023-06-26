@@ -75,14 +75,7 @@ WSGI_APPLICATION = "ehasblog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ehasdb",
-        "USER": "ehasdb",
-        "PASSWORD": "segun1997",
-    }
-}
+DATABASES = {"default": env.dj_db_url("DATABASE_URL")}
 
 
 # Password validation
