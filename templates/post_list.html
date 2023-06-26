@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}Every Body Has A Story{% endblock title %}
+{% block content %}
+
+{% if query %}
+ <h1>Posts containing "{{ query }}"</h1>
+ <h3>
+ {% with results.count as total_results %}
+ Found {{ total_results }} result{{ total_results|pluralize }}
+ {% endwith %}
+ </h3>
+ {% for post in results %}
+
+ <div class="container-fluid">
+    <div class="row">
+        <a href="{{ post.get_absolute_url }}">
+        <div class="col-sm-4">
+            <img src="/media/{{ post.photo }}" class="img-thumbnail" alt="">
+        </div>
+        <div class="col-sm-8">
+            <h2 class="font-weight-bold">{{ post.title }}</h2>
+        </a>
+            <p>{{ post.body|markdown|truncatewords_html:12 }}</p>
+        </div>
+    
+        {% empty %}
+    <p>There are no results for your query.</p>
+{% endfor %}
+    <p><a href="{% url 'post_list' %}">Search again</a></p>
+    </div>
+</div>
+
+ {% else %}
+<div class="container-fluid">
+    <div class="row">
+        <h1>Search for posts</h1>
+        <form method="get">
+        {{ form | crispy }}
+        <input type="submit" class="btn btn-success ml-2" value="Search">
+        </form>
+{% for post in posts %}
+    <div class="col-sm-4">
+        <div class="card-header">
+            <a href="{{ post.get_absolute_url }}">
+                <img src="/media/{{ post.photo }}" class="img-thumbnail" alt="">
+                <span class="font-weight-bold">{{ post.title }}</span> &middot;
+            </a>
+            <p class="tags">
+                Tags:
+                {% for tag in post.tags.all %}
+               <a href="{% url 'post_list_by_tag' tag.slug %}">
+               {{ tag.name }}
+               </a>
+               {% if not forloop.last %}, {% endif %}
+               {% endfor %}
+              </p>
+            <span class="text-muted">Published {{ post.publish }} by {{ post.author}}</span>
+        </div>
+    <div class="card-body">{{ post.body | markdown|truncatewords_html:30}}
+    </div>
+
+    
+    </div>
+{% endfor %}
+</div>
+{% endif %}
+<p>{% include "pagination.html" with page=posts %}</p>
+
+</div>
+{% endblock content %}

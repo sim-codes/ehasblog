@@ -1,0 +1,16 @@
+{% load blog_tags %}
+
+<div class="container-fluid">
+    {% for post in latest_posts %}
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="/media/{{ post.photo }}" class="img-thumbnail" alt="">
+        </div>
+
+        <div class="col-sm-8">
+            <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
