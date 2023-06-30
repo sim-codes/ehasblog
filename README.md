@@ -13,7 +13,7 @@ The Django News App is a web application built with Django framework that allows
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/Simmedia/News-App.git
+   git clone https://github.com/sim-codes/ehasblog.git
 
 2. Navigate to the project directory:
 
@@ -73,17 +73,18 @@ python manage.py runserver
 
 - Register a new account or log in with an existing account to access additional features.
 - Click on a Story to view its details, including comments from other users.
-- Registered users can submit their own Stories by clicking on the "Submit Story" button and filling out the form.
+- Registered users can submit their own Stories by clicking on the "+New" button to create post/sotries.
 - Administrators can access the admin panel at [http://localhost:8000/admin](http://localhost:8000/admin) to manage users and Stories.
 
 ## Contributing
 
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, please create a new issue in the [issue tracker](https://github.com/Simmedia/News-App/issues) or submit a pull request.
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please create a new issue in the [issue tracker](https://github.com/sim-codes/ehasblog/issues) or submit a pull request.
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as per your needs.
 
 ## Acknowledgements
-
-The Django News App was created using the "Django for Beginners Build websites with Python Django 4.0 (William Vincent)".
+My self
+The Django App was created using the "Django for Beginners Build websites with Python Django 4.0 (William Vincent)".
+Django 4 By Example: Build Powerful and Reliable Python Web Applications from Scratch
