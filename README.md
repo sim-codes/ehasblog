@@ -18,7 +18,7 @@ The Django News App is a web application built with Django framework that allows
 2. Navigate to the project directory:
 
 ```
-cd News-App
+cd ehasblog
 ```
 
 3. Create a virtual environment:
